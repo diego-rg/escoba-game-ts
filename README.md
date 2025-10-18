@@ -1,1 +1,1 @@
-Escoba -  a Spanish card game. Made with Next.js (TS, Tailwind,..)
+Escoba -  a Spanish card game. Made with Next.js (TS, Tailwind, ...)
