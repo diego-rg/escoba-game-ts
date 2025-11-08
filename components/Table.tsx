@@ -13,14 +13,23 @@ export const Table: React.FC = () => {
 
     return (
         <div>
-            {deck.map((card) => (
-                <Card
-                    key={card.id}
-                    card={card}
-                    visible={true}
-                    onClick={handleCardClick}
-                />
-            ))}
+            <div id='ai-hand'>AI: Hand</div>
+            <div id='ai-won-cards'>AI: Won Cards</div>
+
+            <div id='table-cards'>Table: Playable Cards
+                {deck.map((card) => (
+                    <Card
+                        key={card.id}
+                        card={card}
+                        visible={true}
+                        onClick={handleCardClick}
+                    />
+                ))}
+            </div>
+            <div id='table-playable-cards'></div>
+
+            <div id='player-hand'>Player: Hand</div>
+            <div id='player-won-cards'>Player: Won Cards</div>
         </div>
     );
 };

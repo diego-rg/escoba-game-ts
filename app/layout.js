@@ -12,8 +12,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Escoba | Card Game",
-  description: "Spanish card game. Made with Next.js",
+  title: "Escoba | A Card Game",
+  description: "Spanish card game. Made with Next.js and TS.",
 };
 
 export default function RootLayout({ children }) {
