@@ -9,3 +9,8 @@ export interface Card {
     id: string,
     img: string;
 }
+
+export interface DealResult {
+  hands: Card[][];
+  remaining: Card[];
+}

@@ -24,3 +24,34 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.stack {
+  position: relative;
+}
+
+.stack > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.stack-offset > * {
+  position: absolute;
+  top: 0;
+}
+
+.hand-fan {
+  @apply flex justify-center items-end relative;
+}
+
+.hand-fan > :nth-child(1) {
+  transform: rotate(-10deg) translateY(10px);
+}
+
+.hand-fan > :nth-child(2) {
+  transform: rotate(0deg);
+}
+
+.hand-fan > :nth-child(3) {
+  transform: rotate(10deg) translateY(10px);
+}
