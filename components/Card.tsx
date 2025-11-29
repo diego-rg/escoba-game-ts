@@ -7,19 +7,21 @@ interface CardProps {
   card: CardType;
   visible: boolean;
   onClick?: (card: CardType) => void;
+  className?: string;
 }
 
 export const Card: React.FC<CardProps> = ({
   card,
   visible = true,
   onClick,
+  className,
 }) => {
   const handleClick = () => {
     if (onClick) onClick(card);
   };
 
   return (
-    <div onClick={handleClick}>
+    <div onClick={handleClick} className={className}>
       <img
         src={visible && card?.img ? card.img : "/img/cards/back.png"}
         alt={

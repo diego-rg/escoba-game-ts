@@ -26,11 +26,10 @@ export const Table: FC<TableProps> = ({
   };
 
   return (
-    <div className="w-full flex flex-col gap-8 p-4">
-      {/* -----------------------  AI ROW  ----------------------- */}
-      <div className="flex justify-between items-start w-full">
-        <div id="ai-hand" className="hand-fan w-1/2 flex justify-center">
-          {AIHand.map((card, i) => (
+    <div className="flex flex-col">
+      <div className="flex justify-between flex-row p-5">
+        <div id="ai-hand" className="flex">
+          {(AIHand ?? []).map((card) => (
             <Card
               key={card.id}
               card={card}
@@ -39,23 +38,25 @@ export const Table: FC<TableProps> = ({
             />
           ))}
         </div>
-
-        <div id="ai-won-cards" className="stack w-[80px] h-[120px] relative">
-          {AIWonCards.map((card, i) => (
-            <div key={card.id} style={{ left: `${i * 4}px` }}>
-              <Card card={card} visible={false} onClick={handleCardClick} />
-            </div>
+        <div
+          id="ai-won-cards"
+          className="w-20 sm:w-24 md:w-28 lg:w-32 xl:w-36 relative"
+        >
+          {(AIWonCards ?? []).map((card) => (
+            <Card
+              key={card.id}
+              card={card}
+              visible={false}
+              onClick={handleCardClick}
+              className="absolute top-0 left-0"
+            />
           ))}
         </div>
       </div>
 
-      {/* -----------------------  TABLE ROW  ----------------------- */}
-      <div className="flex justify-between items-center w-full">
-        <div
-          id="table-playable-cards"
-          className="flex flex-wrap gap-3 max-w-[60%]"
-        >
-          {tablePlayableCards.map((card) => (
+      <div className="flex justify-between flex-row p-5">
+        <div id="table-playable-cards" className="flex flex-row flex-wrap">
+          {(tablePlayableCards ?? []).map((card) => (
             <Card
               key={card.id}
               card={card}
@@ -64,23 +65,25 @@ export const Table: FC<TableProps> = ({
             />
           ))}
         </div>
-
         <div
           id="table-remaining-cards"
-          className="stack w-[80px] h-[120px] relative"
+          className="w-20 sm:w-24 md:w-28 lg:w-32 xl:w-36 relative min-w-20 sm:min-w-24 md:min-w-28 lg:min-w-32 xl:min-w-36"
         >
-          {tableRemainingCards.map((card, i) => (
-            <div key={card.id} style={{ left: `${i * 2}px` }}>
-              <Card card={card} visible={false} onClick={handleCardClick} />
-            </div>
+          {(tableRemainingCards ?? []).map((card) => (
+            <Card
+              key={card.id}
+              card={card}
+              visible={false}
+              onClick={handleCardClick}
+              className="absolute top-0 left-0"
+            />
           ))}
         </div>
       </div>
 
-      {/* -----------------------  PLAYER ROW  ----------------------- */}
-      <div className="flex justify-between items-end w-full">
-        <div id="player-hand" className="hand-fan w-1/2 flex justify-center">
-          {playerHand.map((card, i) => (
+      <div className="flex justify-between flex-row p-5">
+        <div id="player-hand" className="flex">
+          {(playerHand ?? []).map((card) => (
             <Card
               key={card.id}
               card={card}
@@ -89,15 +92,18 @@ export const Table: FC<TableProps> = ({
             />
           ))}
         </div>
-
         <div
           id="player-won-cards"
-          className="stack w-[80px] h-[120px] relative"
+          className="w-20 sm:w-24 md:w-28 lg:w-32 xl:w-36 relative"
         >
-          {playerWonCards.map((card, i) => (
-            <div key={card.id} style={{ left: `${i * 4}px` }}>
-              <Card card={card} visible={true} onClick={handleCardClick} />
-            </div>
+          {(playerWonCards ?? []).map((card) => (
+            <Card
+              key={card.id}
+              card={card}
+              visible={false}
+              onClick={handleCardClick}
+              className="absolute top-0 left-0"
+            />
           ))}
         </div>
       </div>

@@ -12,6 +12,7 @@ import { Card } from "@/types/game";
 
 export const Game: React.FC = () => {
   const [gameStarted, setGameStarted] = useState<boolean>(false);
+  const [isPlayerTurn, setIsPlayerturn] = useState<boolean>(false);
   const [deck, setDeck] = useState<Card[]>([]);
   const [tableRemainingCards, setTableRemainingCards] = useState<Card[]>([]);
   const [tablePlayableCards, setTablePlayableCards] = useState<Card[]>([]);
@@ -33,6 +34,18 @@ export const Game: React.FC = () => {
     setAIWonCards([]);
 
     setGameStarted(true);
+    setIsPlayerturn(true);
+  };
+
+  // Give AI 5 cards from the deck
+  const sendTable = () => {
+    if (deck.length < 5) return; // safety check
+
+    const newTable = [...tablePlayableCards, ...deck.slice(0, 5)];
+    const newDeck = deck.slice(5);
+
+    setTablePlayableCards(newTable);
+    setDeck(newDeck);
   };
 
   // Give AI 5 cards from the deck
@@ -75,16 +88,25 @@ export const Game: React.FC = () => {
         >
           Player Won ×15
         </button>
+
+        <button
+          className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-1 px-3 rounded"
+          onClick={sendTable}
+        >
+          Send Table
+        </button>
       </div>
 
-      <Table
-        tableRemainingCards={tableRemainingCards}
-        tablePlayableCards={tablePlayableCards}
-        playerHand={playerHand}
-        playerWonCards={playerWonCards}
-        AIHand={AIHand}
-        AIWonCards={AIWonCards}
-      />
+      {gameStarted && (
+        <Table
+          tableRemainingCards={tableRemainingCards}
+          tablePlayableCards={tablePlayableCards}
+          playerHand={playerHand}
+          playerWonCards={playerWonCards}
+          AIHand={AIHand}
+          AIWonCards={AIWonCards}
+        />
+      )}
     </div>
   );
 };
