@@ -30,18 +30,10 @@ export const Table: FC<TableProps> = ({
       <div className="flex justify-between flex-row p-5">
         <div id="ai-hand" className="flex">
           {(AIHand ?? []).map((card) => (
-            <Card
-              key={card.id}
-              card={card}
-              visible={false}
-              onClick={handleCardClick}
-            />
+            <Card key={card.id} card={card} visible={false} onClick={handleCardClick} />
           ))}
         </div>
-        <div
-          id="ai-won-cards"
-          className="w-20 sm:w-24 md:w-28 lg:w-32 xl:w-36 relative"
-        >
+        <div id="ai-won-cards" className="w-20 sm:w-24 md:w-28 lg:w-32 xl:w-36 relative">
           {(AIWonCards ?? []).map((card) => (
             <Card
               key={card.id}
@@ -57,12 +49,7 @@ export const Table: FC<TableProps> = ({
       <div className="flex justify-between flex-row p-5">
         <div id="table-playable-cards" className="flex flex-row flex-wrap">
           {(tablePlayableCards ?? []).map((card) => (
-            <Card
-              key={card.id}
-              card={card}
-              visible={true}
-              onClick={handleCardClick}
-            />
+            <Card key={card.id} card={card} visible={true} onClick={handleCardClick} />
           ))}
         </div>
         <div
@@ -84,18 +71,10 @@ export const Table: FC<TableProps> = ({
       <div className="flex justify-between flex-row p-5">
         <div id="player-hand" className="flex">
           {(playerHand ?? []).map((card) => (
-            <Card
-              key={card.id}
-              card={card}
-              visible={true}
-              onClick={handleCardClick}
-            />
+            <Card key={card.id} card={card} visible={true} onClick={handleCardClick} />
           ))}
         </div>
-        <div
-          id="player-won-cards"
-          className="w-20 sm:w-24 md:w-28 lg:w-32 xl:w-36 relative"
-        >
+        <div id="player-won-cards" className="w-20 sm:w-24 md:w-28 lg:w-32 xl:w-36 relative">
           {(playerWonCards ?? []).map((card) => (
             <Card
               key={card.id}
